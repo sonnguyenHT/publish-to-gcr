@@ -15,6 +15,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: List files in the repository
+        run: |
+            ls ${{ github.workspace }}
       - name: Build the hello-docker Docker image
         run: |
           docker build . --tag ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
