@@ -15,13 +15,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: print working directory
-        run: |
-            pwd
-      - name: List files in the repository
-        run: |
-            ls -la
+      # - name: print working directory
+      #   run: |
+      #       pwd
+      # - name: List files in the repository
+      #   run: |
+      #       ls -la
       - name: Build the hello-docker Docker image
+        working-directory: /home/runner/work/publish-to-gcr/publish-to-gcr
         run: |
           docker build . --tag ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
           docker run ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
