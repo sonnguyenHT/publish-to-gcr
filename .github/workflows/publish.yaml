@@ -23,10 +23,6 @@ jobs:
       #       ls -la
       - name: Build the hello-docker Docker image
         run: |
-          docker ps
-
-
-        # cd /home/runner/work/publish-to-gcr/publish-to-gcr
-          # docker build . --tag ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
-          # docker run ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
-          # docker push ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
+          docker build ${{ github.workspace }}/. --tag ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
+          docker run ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
+          docker push ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
