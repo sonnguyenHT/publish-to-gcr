@@ -21,8 +21,12 @@ jobs:
       # - name: List files in the repository
       #   run: |
       #       ls -la
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile 
       - name: Build the hello-docker Docker image
         run: |
-          docker build ${{ github.workspace }}/. --tag ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
           docker run ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
           docker push ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
