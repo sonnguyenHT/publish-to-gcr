@@ -28,8 +28,9 @@ jobs:
       #   with:
       #     context: .
       #     file: ./Dockerfile 
-      - name: Build the hello-docker Docker image
-        run: |
-          docker build -t ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest .
-          docker run ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
-          docker push ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: image/
+          push: true
+          tags: ghcr.io/sonnguyenht/publish-hello-image:latest
