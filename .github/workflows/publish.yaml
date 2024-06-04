@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: List files in the repository
         run: |
-            ls ${{ github.workspace }}
+            ls -la
       - name: Build the hello-docker Docker image
         run: |
           docker build . --tag ghcr.io/sonnguyenht/hello-docker-gcr-demo:latest
