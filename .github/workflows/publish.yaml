@@ -15,6 +15,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: print working directory
+        run: |
+            pwd
       - name: List files in the repository
         run: |
             ls -la
